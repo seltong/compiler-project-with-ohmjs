@@ -1,0 +1,3 @@
+function handleClickBtn(){}
+function handleSetValue(){}
+function handleClick(){}
