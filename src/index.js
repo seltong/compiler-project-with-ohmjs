@@ -25,12 +25,14 @@ function verificarEGerarCodigo(input) {
   // Adiciona a operação de geração de árvore na semantica
   semantic.addOperation('toTree', {
     Exp(t,sp, tn) { return {exp: [t.toTree(), ...tn.toTree()]}; },
-    Tag(n, op, p, v, pn, cp) { 
+    Tag_text(op, t, cp){ return { tag: t.toTree() }},
+    Tag_tag(n, op, p, v, pn, cp) { 
       return {
         tag: n.toTree(),
         props: [p.toTree(), ...pn.toTree()]
       }; 
     },
+    Tag(t){ return t.toTree() },
     Prop_tag(p) { return { propTag: p.toTree() } },
     Prop_restrict(r) { return { restriction: r.toTree() }},
     Prop_event(e) { return { event: e.toTree() }},
@@ -43,6 +45,7 @@ function verificarEGerarCodigo(input) {
     propName(_) { return this.sourceString; },
     propValue(_) { return this.sourceString; },
     name(_) { return {name: this.sourceString}; },
+    text(_) { return this.sourceString; },
     restriction(_) { return this.sourceString; },
     eventType(_) { return this.sourceString; },
     eventName(_) { return this.sourceString; },

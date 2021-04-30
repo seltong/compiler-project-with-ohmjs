@@ -6,8 +6,10 @@ div(
   class=newClass,
   #span(
     id = newBtn1, 
-    class = newClass1
+    class = newClass1,
+    #(Minha span)
   ),
+  #(minha Div),
   #button(
     id = newBtn2, 
     class = newClass2,

@@ -77,11 +77,16 @@ export function converteTreeToCode(tree) {
   var functions = "";
   
   expressions.map(exp => {
-    const tagName = exp.tag.name;
+    const tag = exp.tag;
     var propsTag = [], 
         restrictions = [], 
         events = [], 
         children = [];
+    
+    if (!tag.name) {
+      html += tag + '\n';
+      return;
+    }
 
     exp.props.map(prop => {
       if (prop.propTag) propsTag.push(prop.propTag)
@@ -90,7 +95,7 @@ export function converteTreeToCode(tree) {
       if (prop.child) children.push(prop.child)
     });
 
-    const r = createTag(tagName, propsTag, restrictions, events, children);
+    const r = createTag(tag.name, propsTag, restrictions, events, children);
 
     html += r.html;
     functions += r.functions;

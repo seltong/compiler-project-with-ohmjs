@@ -1,5 +1,8 @@
 <div id="newBtn" class="newClass">
-<span id="newBtn1" class="newClass1"></span>
+<span id="newBtn1" class="newClass1">
+Minha span
+</span>
+minha Div
 <button id="newBtn2" class="newClass2" onClick="handleClickBtn()"></button>
 </div>
 <input id="newBtn" class="newClass" onChange="handleSetValue()" onClick="handleClick()" />
